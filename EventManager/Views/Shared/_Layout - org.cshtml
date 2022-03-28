@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/datatables")*@
+    @*<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />*@
+    @*<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+        <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+
+        <script src="~/Scripts/jquery.jqGrid.min.js"></script>
+        <script src="~/Scripts/myjqgrid.js"></script>*@
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Event Manager", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("HOME", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("TAGS", "Index", "tagConfigView", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("TAG EVENT", "Index", "tagEventlogView", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("USER", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Prototype", "Index", "prototype", new { area = "" }, null)</li>
+                    @*datatable*@
+                    @*<li>@Html.ActionLink("datatable", "Index", "datatable", new { area = "" }, null)</li>*@
+                    <li>@Html.ActionLink("datatable", "Index", "Table_prototype2", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Asphere Event manager system version 0.1</p>
+        </footer>
+    </div>
+
+   
+  
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿@model project_eventmanager.Models.event_Destination
+
+@{
+    ViewBag.Title = "Destination";
+}
+
+<div>
+    <h4>Event Destination</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Des Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desName)
+        </dd>
+
+        <dt>
+           Des Cription
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            Is Enable
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isEnable)
+        </dd>
+
+        <dt>
+            Area Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area.AreaName)
+        </dd>
+
+        <dt>
+            State Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_StateOfTag.StateName)
+        </dd>
+
+        <dt>
+            Create By
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+
+        <dt>
+            Create Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            Last Update By
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateBy)
+        </dd>
+
+        <dt>
+            Last Update Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateDate)
+        </dd>
+
+
+        <dt>&nbsp;</dt>
+        <dd>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.RecordId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,347 @@
+﻿@model project_eventmanager.Models.tag_event_conf
+
+@{
+        ViewBag.Title = "Tag Configuration";
+    }
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100 h-100">
+                <div class="card-header">
+                    <h4 class="card-title">Tag Configuration Detail</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.logid }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class=" row">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                Tag Id
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tag_id)
+                            </dd>
+
+                            <dt>
+                                Tag Name
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tag_name)
+                            </dd>
+
+                            <dt>
+                                Unit of Mesurement
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.event_UnitOfMesurement.UnitName)
+
+                            </dd>
+
+                            <dt>
+                                Precision
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.precision)
+                            </dd>
+
+                            <dt>
+                                Area1
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.event_area.AreaName)
+                            </dd>
+
+                            <dt>
+                                Area2
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.event_area1.AreaName)
+                            </dd>
+
+                            <dt>
+                                Area3
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.event_area2.AreaName)
+                            </dd>
+
+                            <dt>
+                                Area4
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.event_area3.AreaName)
+                            </dd>
+
+                            <dt>
+                                Range4 Max
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range4_max)
+                            </dd>
+
+                            <dt>
+                                Range3 Max
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range3_max)
+                            </dd>
+
+                            <dt>
+                                Range2 Max
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range2_max)
+                            </dd>
+
+                            <dt>
+                                Range1 Max
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range1_max)
+                            </dd>
+
+                            <dt>
+                                Range1 Min
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range1_min)
+                            </dd>
+
+                            <dt>
+                                Range2 Min
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range2_min)
+                            </dd>
+
+                            <dt>
+                                Range3 Min
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range3_min)
+                            </dd>
+
+                            <dt>
+                                Range4 Min
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range4_min)
+                            </dd>
+
+                            <dt>
+                                Range4 Max Action
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range4_max_action)
+                            </dd>
+
+                            <dt>
+                                Range3 Max Action
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range3_max_action)
+                            </dd>
+
+                            <dt>
+                                Range2 Max Action
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range2_max_action)
+                            </dd>
+
+                            <dt>
+                                Range1 Max Action
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range1_max_action)
+                            </dd>
+
+                            <dt>
+                                Range1 Min Action
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range1_min_action)
+                            </dd>
+
+                            <dt>
+                                Range2 Min Action
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range2_min_action)
+                            </dd>
+
+                            <dt>
+                                Range3 Min Action
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range3_min_action)
+                            </dd>
+
+                            <dt>
+                                Range4 Min Action
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.range4_min_action)
+                            </dd>
+
+                            <dt>
+                                Poll Freq
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.poll_freq)
+                            </dd>
+
+                            <dt>
+                                Variable Type
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.event_VariableType.VariableTypeName)
+                            </dd>
+
+                            <dt>
+                                Monitoring Enabled
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.monitoring_enabled)
+                            </dd>
+
+                            <dt>
+                                Monitoring
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.event_StateDisplay.Display)
+                            </dd>
+
+                            <dt>
+                                Datasource
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.datasource)
+                            </dd>
+
+                            <dt>
+                                Process Tag
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.process_tag)
+                            </dd>
+
+                            <dt>
+                                Email Notification Time
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.email_notification_time)
+                            </dd>
+
+                            <dt>
+                                Enable Email
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.enable_email)
+                            </dd>
+
+                            <dt>
+                                Logdatetime
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.logdatetime)
+                            </dd>
+
+                            <dt>
+                                Lastmodify
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.lastmodify)
+                            </dd>
+
+                            <dt>
+                                Last Value
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.last_value)
+                            </dd>
+
+                            <dt>
+                                Last Timestamp
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.last_timestamp)
+                            </dd>
+
+                            <dt>
+                                Error Messege
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.error_messege)
+                            </dd>
+
+                            <dt>
+                                Next Samplingtime
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.next_samplingtime)
+                            </dd>
+
+                            <dt>
+                                IsRegister
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.isRegister)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <div class="row">
+
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.logid }, new { @class = "btn btn-success" }) |
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-success" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

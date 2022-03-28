@@ -1,0 +1,160 @@
+﻿@model project_eventmanager.Models.event_user
+
+@{
+    ViewBag.Title = "User";
+}
+
+<div>
+    <h4>Event User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           User ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)&nbsp;
+        </dd>
+
+        <dt>
+            User Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)&nbsp;
+        </dd>
+
+        <dt>
+            User Password
+        </dt>
+
+        <dd>
+            **********
+        </dd>
+
+        <dt>
+            Full Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)&nbsp;
+        </dd>
+
+        <dt>
+            Last Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)&nbsp;
+        </dd>
+
+        <dt>
+          Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEmail) &nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area.AreaName)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area1.AreaName)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area2.AreaName)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Area4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area3.AreaName)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_Position.PositionTypeName)&nbsp;
+        </dd>
+
+        <dt>
+           Enable
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isEnable)&nbsp;
+        </dd>
+
+        <dt>
+           ReciveEmail
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isReciveEmail)&nbsp;
+        </dd>
+
+        <dt>
+            User Of System
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isUserOfSystem)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateBy)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateDate) &nbsp;
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecordId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,74 @@
+﻿@model project_eventmanager.Models.event_UnitOfMesurement
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">Edit Unit Of Mesurement</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body h-100">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.RecordId)
+                        @Html.HiddenFor(model => model.CreateDate)
+                        @Html.HiddenFor(model => model.CreateBy)
+                     
+                        <div class="form-group row">
+                            
+                            <label class="control-label col-md-3" for="UnitName">Unit Name</label>
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.UnitName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UnitName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            
+                            <label class="control-label col-md-3" for="UnitDescription">Unit Description</label>
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.UnitDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UnitDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            
+                            <label class="control-label col-md-3" for="isEnable">Is Enable</label>
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.isEnable)
+                                    @Html.ValidationMessageFor(model => model.isEnable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="form-group row">
+                            <div class="col-md-offset-2 col-md-2"></div>
+                            <div class="col-md-offset-2 col-md-4">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+                            <div class="col-md-offset-2 col-md-6 text-right">
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

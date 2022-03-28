@@ -1,0 +1,104 @@
+﻿@model project_eventmanager.Models.event_DestinationMember
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">Delete Destination Memmber</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body h-100">
+
+                    <div>
+                        <h4>Are you sure you want to delete this?</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            @*<dt>
+                                    @Html.DisplayNameFor(model => model.RecordId)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.RecordId)
+                                </dd>*@
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.event_Destination.desName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.event_Destination.desName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.event_user.FullName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.event_user.FullName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CreateBy)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CreateBy)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CreateDate)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CreateDate)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LastUpdateBy)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.LastUpdateBy)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LastUpdateDate)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.LastUpdateDate)
+                            </dd>
+
+                            <dd>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-actions no-color">
+                                        <input type="submit" value="Delete" class="btn btn-danger" /> 
+                                        @Html.ActionLink("Back to List", "Index")
+                                    </div>
+                                }
+                            </dd>
+
+
+                        </dl>
+
+                     
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

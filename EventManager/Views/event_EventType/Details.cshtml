@@ -1,0 +1,82 @@
+﻿@model project_eventmanager.Models.event_EventType
+
+@{
+    ViewBag.Title = "Event Type";
+}
+
+
+<div>
+    <h4>Event Type Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventTypeID)
+        </dd>
+
+        <dt>
+           Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventTypeName)
+        </dd>
+
+        <dt>
+           Description
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventTypeDescription) &nbsp;
+        </dd>
+
+        <dt>
+           Is Enable
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isEnable)
+        </dd>
+
+        <dt>
+           Create By
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+
+        <dt>
+            Create Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            Last Update By
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateBy)
+        </dd>
+
+        <dt>
+            Last Update Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecordID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

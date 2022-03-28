@@ -1,0 +1,46 @@
+﻿<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Info boxes  row1-->
+        @*========================================= row1@* =========================================*@
+        @Html.Partial("_tagSummary")
+        <!-- /.end row1 -->
+        @*========================================= row2@* =========================================*@
+        <div class="row">
+            @*Event by State*@
+            @Html.Partial("_eventsByState")
+
+            @*TOP 5 EVENTS*@
+            @Html.Partial("_top5Events")
+
+
+        </div>
+        @*end row2*@
+
+        @*========================================= row3 =========================================*@
+        <div class="row">
+            <div class="col-md-9">
+
+                @*EVENT LIST*@
+                @Html.Partial("_ListTagEvent")
+
+                @*END EVENT LIST*@
+            </div>
+
+            <div class="col-md-3">
+                @*COMPLIANCE*@
+                @Html.Partial("_compliance")
+
+
+            </div>
+        </div>
+        @*end row3*@
+
+    </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->
+<script src="~/Content/script/top5event.js"></script>
+<script src="~/Content/script/eventByState.js"></script>
+<script src="~/Content/script/dashboard.js"></script>
+

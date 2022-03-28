@@ -1,0 +1,87 @@
+﻿@model IEnumerable<project_eventmanager.Models.Table_prototype2>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RecordName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.colNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bitCheckbox)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.intRedio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ColFloat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.colDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.colDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.event_area.AreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.event_area1.AreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.event_Position.PositionID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecordName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.colNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bitCheckbox)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.intRedio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColFloat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.colDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.colDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_area.AreaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_area1.AreaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_Position.PositionID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RecordID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RecordID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RecordID })
+        </td>
+    </tr>
+}
+
+</table>

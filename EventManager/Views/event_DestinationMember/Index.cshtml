@@ -1,0 +1,128 @@
+﻿@model IEnumerable<project_eventmanager.Models.event_DestinationMember>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">Destination Member</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Create New", "Create")
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="dataTable" class="table  table-bordered  hover display">
+                        <thead>
+                            <tr>
+                                @*<th>
+            @Html.DisplayNameFor(model => model.RecordId)
+        </th>*@
+                                <th>
+                                    Destination Name
+                                </th>
+                                <th>
+                                    User Name
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                @*<th>Destination Area</th>
+        <th>Destination State</th>
+        <th>Description</th>*@
+                                @*<th>
+            Create By
+        </th>
+        <th>
+            Create Date
+        </th>*@
+                                @*<th>
+           Last Update By
+        </th>
+        <th>
+            Last Update Date
+        </th>*@
+
+                                <th></th>
+                            </tr>
+                            </thead><tbody>
+                            @foreach (var item in Model)
+                            {
+                                        <tr>
+                                            @*<td>
+            @Html.DisplayFor(modelItem => item.RecordId)
+        </td>*@
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.event_Destination.desName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.event_user.FullName)  @Html.DisplayFor(modelItem => item.event_user.LastName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.event_user.UserEmail) 
+                                            </td>
+                                            @* <td>
+            @Html.DisplayFor(modelItem => item.event_Destination.
+                                                event_area.AreaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.event_Destination.event_StateOfTag.StateName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.event_Destination.description)
+                                            </td>*@
+                                            @*<td>
+            @Html.DisplayFor(modelItem => item.CreateBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>*@
+                                            @*<td>
+            @Html.DisplayFor(modelItem => item.LastUpdateBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdateDate)
+        </td>*@
+
+                                            <td>
+                                                @*@Html.ActionLink("Edit", "Edit", new { id = item.RecordId }, new { @class = "btn btn-sm btn-primary " })*@
+                                                @Html.ActionLink("Details", "Details", new { id = item.RecordId }, new { @class = "btn btn-sm btn-primary " })
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.RecordId }, new { @class = "btn btn-sm btn-danger" })
+                                            </td>
+                                        </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        $(".dataTables_wrapper").css("width", "100%");
+        $("#dataTable").DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+            "responsive": true,
+
+            order: [[0, 'asc'], [1, 'asc']],
+            rowGroup: {
+                dataSrc: [0, 1]
+            },
+            columnDefs: [{
+                targets: [0,1],
+                //visible: false
+            }]
+        });
+    });
+</script>

@@ -1,0 +1,138 @@
+﻿@model project_eventmanager.Models.event_Destination
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desName) &nbsp;
+        </dd>
+
+        <dt>
+            Description
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)&nbsp;
+        </dd>
+
+        <dt>
+            Enable
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isEnable)&nbsp;
+        </dd>
+
+        <dt>
+            Line Enable
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lineEnable)&nbsp;
+        </dd>
+
+        <dt>
+            Line Group
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lineGroupName)&nbsp;
+        </dd>
+
+        <dt>
+            Line Token
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lineToken)&nbsp;
+        </dd>
+
+
+        <dt>
+            Area1
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area.AreaName)&nbsp;
+        </dd>
+
+        <dt>
+            Area2
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area1.AreaName)&nbsp;
+        </dd>
+
+        <dt>
+            Area3
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area2.AreaName)&nbsp;
+        </dd>
+
+        <dt>
+            Area4
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area3.AreaName)&nbsp;
+        </dd>
+
+        <dt>
+            State
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_StateDisplay.Display)&nbsp;
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateBy)&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateBy)&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateBy)&nbsp;
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateDate)&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateDate)&nbsp;
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecordId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

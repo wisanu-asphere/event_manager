@@ -1,0 +1,288 @@
+﻿@model IEnumerable<project_eventmanager.Models.tag_event_conf>
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">Tag Configuration</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Create New", "Create")
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="dataTable" class="table table-bordered table-striped hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Tag ID
+                                </th>
+                                <th>
+                                    Tag Name
+                                </th>
+                                <th>
+                                    Unit of Mesurement
+                                </th>
+                                <th>
+                                    Precision
+                                </th>
+                                <th>
+                                    Area1
+                                </th>
+                                <th>
+                                    Area2
+                                </th>
+                                <th>
+                                    Area3
+                                </th>
+                                <th>
+                                    Area4
+                                </th>
+                                @*<th>
+                                        Range4 Max
+                                    </th>
+                                    <th>
+                                        Range3 Max
+                                    </th>
+                                    <th>
+                                        Range2 Max
+                                    </th>
+                                    <th>
+                                        Range1 Max
+                                    </th>
+                                    <th>
+                                        Range1 Min
+                                    </th>
+                                    <th>
+                                        Range2 Min
+                                    </th>
+                                    <th>
+                                        Range3 Min
+                                    </th>
+                                    <th>
+                                        Range4 Min
+                                    </th>
+                                    <th>
+                                        Range4 Max Action
+                                    </th>
+                                    <th>
+                                        Range3 Max Action
+                                    </th>
+                                    <th>
+                                        Range2 Max Action
+                                    </th>
+                                    <th>
+                                        Range1 Max Action
+                                    </th>
+                                    <th>
+                                        Range1 Min Action
+                                    </th>
+                                    <th>
+                                        Range2 Min Action
+                                    </th>
+                                    <th>
+                                        Range3 Min Action
+                                    </th>
+                                    <th>
+                                        Range4 Min Action
+                                    </th>*@
+                                @*<th>
+                                        Poll Freq
+                                    </th>
+                                    <th>
+                                        Variable Type
+                                    </th>
+                                    <th>
+                                        Monitoring Enabled
+                                    </th>
+                                    <th>
+                                        Monitoring
+                                    </th>
+                                    <th>
+                                        Datasource
+                                    </th>
+                                    <th>
+                                        Process Tag
+                                    </th>
+                                    <th>
+                                        Email Notification Time
+                                    </th>
+                                    <th>
+                                        Enable Email
+                                    </th>
+                                    <th>
+                                        Logdatetime
+                                    </th>
+                                    <th>
+                                        Lastmodify
+                                    </th>
+                                    <th>
+                                        Last Value
+                                    </th>
+                                    <th>
+                                        Last Timestamp
+                                    </th>
+                                    <th>
+                                        Error Messege
+                                    </th>
+                                    <th>
+                                        Next Samplingtime
+                                    </th>*@
+                                <th>
+                                        IsRegister
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.tag_id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.tag_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.event_UnitOfMesurement.UnitName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.precision)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem =>item.event_area.AreaName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.event_area1.AreaName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.event_area2.AreaName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.event_area3.AreaName)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.range4_max)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range3_max)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range2_max)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range1_max)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range1_min)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range2_min)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range3_min)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range4_min)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range4_max_action)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range3_max_action)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range2_max_action)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range1_max_action)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range1_min_action)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range2_min_action)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range3_min_action)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.range4_min_action)
+                                        </td>*@
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.poll_freq)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.variable_type)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.monitoring_enabled)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.monitoring_state)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.datasource)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.process_tag)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.email_notification_time)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.enable_email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.logdatetime)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.lastmodify)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.last_value)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.last_timestamp)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.error_messege)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.next_samplingtime)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.isRegister)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.logid }, new { @class = "btn btn-sm btn-primary " })
+                                        @Html.ActionLink("Details", "Details", new { id = item.logid }, new { @class = "btn btn-sm btn-primary " })
+                                        @*@Html.ActionLink("Delete", "Delete", new { id = item.logid }, new { @class = "btn btn-warning" })*@
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        $(".dataTables_wrapper").css("width", "100%");
+        $("#dataTable").DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+            "responsive": true,
+        });
+    });
+</script>

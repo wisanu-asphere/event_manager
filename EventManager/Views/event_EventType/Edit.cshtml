@@ -1,0 +1,83 @@
+﻿@model project_eventmanager.Models.event_EventType
+
+@{
+    ViewBag.Title = "Edit Area";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">Edit Event Area</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body h-100">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.RecordID)
+                        @Html.HiddenFor(model => model.CreateBy)
+                        @Html.HiddenFor(model => model.CreateDate)
+                        <div class="form-group row">
+                            
+                            <label class="control-label col-md-3" for="EventTypeID">Event Type ID</label>
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.EventTypeID, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EventTypeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            
+                            <label class="control-label col-md-3" for="EventTypeName">Event Type Name</label>
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.EventTypeName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EventTypeName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                           
+                            <label class="control-label col-md-3" for="EventTypeDescription">Event Type Description</label>
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.EventTypeDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EventTypeDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                          
+                            <label class="control-label col-md-3" for="isEnable">Is Enable</label>
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    @Html.EditorFor(model => model.isEnable)
+                                    @Html.ValidationMessageFor(model => model.isEnable, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-offset-2 col-md-2"></div>
+                            <div class="col-md-offset-2 col-md-4">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+                            <div class="col-md-offset-2 col-md-6 text-right">
+                                @Html.ActionLink("Back to List", "Index")
+                            </div>
+                        </div>
+                    </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<project_eventmanager.Models.event_StateDisplay>
+
+@{
+    ViewBag.Title = "State of Tag";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">State of Tag</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @*@Html.ActionLink("Create New", "Create")*@
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="dataTable" class="table table-bordered table-striped hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Display)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DisplayGroup)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Display)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DisplayGroup)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-sm btn-primary " })
+                                    @*@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-primary " })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-sm btn-danger " })*@
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</section>
+<script>
+    $(function () {
+        $(".dataTables_wrapper").css("width", "100%");
+        $("#dataTable").DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+            "responsive": true,
+        });
+    });
+</script>
+

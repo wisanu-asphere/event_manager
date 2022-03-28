@@ -1,0 +1,456 @@
+﻿@model project_eventmanager.Models.tag_event_conf
+
+@{
+    ViewBag.Title = "Tag";
+}
+
+<script>
+    $(function () {
+        'use strict'
+        console.log('tag event conf');
+        //getArea2("1001", $('#area2'));
+
+        $('#area1').change(function () {
+            var _area = $("#area1").val();
+            getArea2(_area, $('#area2'));
+            //$('#area2').trigger("change");
+        });
+
+        $('#area2').change(function () {
+            var _area = $("#area2").val();
+            getArea2(_area, $('#area3'));
+            //_area.trigger("change");
+        });
+
+        $('#area3').change(function () {
+            var _area = $("#area3").val();
+            getArea2(_area, $('#area4'));
+            //_area.trigger("change");
+        });
+
+        function getArea2(_id, obj) {
+            //console.log("getArea2");
+            //var _id = _id+'';
+            obj.empty();
+            var url = "getArea2?id=" + _id;
+
+            obj.append(
+                $('<option/>', {
+                    value: "",
+                    text: "Please Select"
+                    }));
+
+            $.get(url, null, function (data) {
+               
+                for (var i = 0; i <= (data.length - 1); i++) {
+                    //console.log(data[i].AreaID);
+                    obj.append(
+                        $('<option/>', {
+                            value: data[i].AreaID,
+                            text: data[i].AreaName
+                        }));
+                }
+
+            });
+           
+        }
+    });
+</script>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">Create Tag</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body h-100">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @*<div class="form-group row">
+
+                                    <label class="control-label col-md-3" for="tag_id">Tag Id</label>
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.tag_id, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.tag_id, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="tag_name">Tag Name</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.tag_name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.tag_name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.uom">Unit of Measurement</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownList("uom", null, "Please Select", htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.uom, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3" for="model.precision">Precision</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.precision, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.precision, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="control-label col-md-3" for="model.area1">Area1</label>
+                                <div class="col-md-6">
+                                    @*@Html.EditorFor(model => model.area1, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @Html.ValidationMessageFor(model => model.area1, "", new { @class = "text-danger" })
+                                    @Html.DropDownList("area1", null, "Please Select", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.area2">Area2</label>
+                                <div class="col-md-6">
+                                    @*@Html.EditorFor(model => model.area2, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @Html.ValidationMessageFor(model => model.area2, "", new { @class = "text-danger" })
+                                    @Html.DropDownList("area2", null, "Please Select", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.area3">Area3</label>
+                                <div class="col-md-6">
+                                    @*@Html.EditorFor(model => model.area3, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @Html.ValidationMessageFor(model => model.area3, "", new { @class = "text-danger" })
+                                    @Html.DropDownList("area3", null, "Please Select", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.area4">Area4</label>
+                                <div class="col-md-6">
+                                    @*@Html.EditorFor(model => model.area4, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @Html.ValidationMessageFor(model => model.area4, "", new { @class = "text-danger" })
+                                    @Html.DropDownList("area4", null, "Please Select", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range4_max">Range4 Max</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range4_max, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range4_max, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range3_max">Range3 Max</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range3_max, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range3_max, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range2_max">Range2 Max</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range2_max, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range2_max, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range1_max">Range1 Max</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range1_max, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range1_max, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range1_min">Range1 Min</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range1_min, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range1_min, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range2_min">Range2 Min</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range2_min, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range2_min, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range3_min">Range3 Min</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range3_min, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range3_min, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range4_min">Range4 Min</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range4_min, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range4_min, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range4_max_action">Range4 Max Action</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range4_max_action, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range4_max_action, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range3_max_action">Range3 Max Action</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range3_max_action, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range3_max_action, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range2_max_action">Range2 Max Action</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range2_max_action, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range2_max_action, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range1_max_action">Range1 Max Action</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range1_max_action, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range1_max_action, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range1_min_action">Range1 Min Action</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range1_min_action, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range1_min_action, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range2_min_action">Range2 Min Action</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range2_min_action, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range2_min_action, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range3_min_action">Range3 Min Action</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range3_min_action, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range3_min_action, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.range4_min_action">Range4 Min Action</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.range4_min_action, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.range4_min_action, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.poll_freq">Poll Freq</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.poll_freq, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.poll_freq, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.variable_type">Variable Type</label>
+                                <div class="col-md-6">
+                                    @*@Html.EditorFor(model => model.variable_type, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @Html.DropDownList("variable_type", null, "Please Select", htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.variable_type, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.monitoring_enabled">Monitoring Enabled</label>
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.monitoring_enabled)
+                                        @Html.ValidationMessageFor(model => model.monitoring_enabled, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.monitoring_state">Monitoring</label>
+                                <div class="col-md-6">
+                                    @*@Html.EditorFor(model => model.monitoring_state, new { htmlAttributes = new { @class = "form-control" } })*@
+                                    @Html.DropDownList("monitoring_state", null, "Please Select", htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.monitoring_state, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.datasource">Datasource</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.datasource, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.datasource, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.process_tag">Process Tag</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.process_tag, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.process_tag, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.email_notification_time">Email Notification Time</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.email_notification_time, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.email_notification_time, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.enable_email">Enable Email</label>
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.enable_email)
+                                        @Html.ValidationMessageFor(model => model.enable_email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*<div class="form-group row">
+
+                                    <label class="control-label col-md-3" for="model.logdatetime">Logdatetime</label>
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.logdatetime, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.logdatetime, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <label class="control-label col-md-3" for="model.lastmodify">Lastmodify</label>
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.lastmodify, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.lastmodify, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <label class="control-label col-md-3" for="model.last_value">Last Value</label>
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.last_value, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.last_value, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <label class="control-label col-md-3" for="model.last_timestamp">Last Timestamp</label>
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.last_timestamp, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.last_timestamp, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <label class="control-label col-md-3" for="model.error_messege">Error Messege</label>
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.error_messege, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.error_messege, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                    <label class="control-label col-md-3" for="model.next_samplingtime">Next Samplingtime</label>
+                                    <div class="col-md-6">
+                                        @Html.EditorFor(model => model.next_samplingtime, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.next_samplingtime, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+
+                            <div class="form-group row">
+
+                                <label class="control-label col-md-3" for="model.isRegister">IsRegister</label>
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.isRegister)
+                                        @Html.ValidationMessageFor(model => model.isRegister, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-offset-2 col-md-2"></div>
+                                <div class="col-md-offset-2 col-md-4">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                                <div class="col-md-offset-2 col-md-6 text-right">
+                                    @Html.ActionLink("Back to List", "Index")
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

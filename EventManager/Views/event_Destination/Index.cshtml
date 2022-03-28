@@ -1,0 +1,123 @@
+﻿@model IEnumerable<project_eventmanager.Models.event_Destination>
+
+@{
+    ViewBag.Title = "Index";
+}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">User</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Create New", "Create")
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="dataTable" class="table table-bordered table-striped hover">
+                        <thead>
+                            
+                                <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Description)
+                                    </th>
+                                    <th>
+                                       Enable
+                                    </th>
+                                    <th>
+                                        Line Enable
+                                    </th>
+                                    <th>
+                                       Line Group
+                                    </th>
+                            
+                                   
+                                    <th>
+                                        Area1
+                                    </th>
+                                    <th>
+                                        Area2
+                                    </th>
+                                    <th>
+                                        Area3
+                                    </th>
+                                    <th>
+                                        Area4
+                                    </th>
+                                    <th>
+                                        State
+                                    </th>
+
+                                    <th></th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.desName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.isEnable)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.lineEnable)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.lineGroupName)
+                                    </td>
+
+                                   
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.event_area.AreaName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.event_area1.AreaName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.event_area2.AreaName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.event_area3.AreaName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.event_StateDisplay.Display)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.RecordId }, new { @class = "btn btn-sm btn-primary " })
+                                        @Html.ActionLink("Details", "Details", new { id = item.RecordId }, new { @class = "btn btn-sm btn-primary " })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.RecordId }, new { @class = "btn btn-sm btn-danger " })
+                                    </td>
+                                </tr>
+                            }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+</section>
+<script>
+    $(function () {
+        $(".dataTables_wrapper").css("width", "100%");
+        $("#dataTable").DataTable({
+            "pageLength": 25,
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+            "responsive": true,
+        });
+    });
+</script>

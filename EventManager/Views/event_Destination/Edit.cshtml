@@ -1,0 +1,201 @@
+﻿@model project_eventmanager.Models.event_Destination
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script>
+    $(function () {
+        'use strict'
+        var _area = $("#Area1");
+        var _area2 = $("#Area2");
+        var _area3 = $("#Area3");
+        var _area4 = $("#Area4");
+        if (!_area2.val()) getArea2(_area, $('#Area2'));
+
+        $('#Area1').change(function () {
+            var _area = $("#Area1").val();
+            _area2.empty();
+            _area3.empty();
+            _area4.empty();
+            getArea2(_area, $('#Area2'));
+
+        });
+
+        $('#Area2').change(function () {
+
+            _area3.empty();
+            _area4.empty();
+            getArea2(_area2, $('#Area3'));
+         
+        });
+
+        $('#Area3').change(function () {
+            var _area = $("#Area3").val();
+            _area4.empty();
+            getArea2(_area, $('#Area4'));
+            
+        });
+        function clearList() { }
+           function getArea2(_id, obj) {
+            obj.empty();
+            var url ='@Url.Action("getArea2", "tag_event_conf")'+ "?id=" + _id;
+            obj.append(
+                $('<option/>', {
+                    value: "",
+                    text: "Please Select"
+                }));
+            $.get(url, null, function (data) {
+                for (var i = 0; i <= (data.length - 1); i++) {
+                    obj.append(
+                        $('<option/>', {
+                            value: data[i].AreaID,
+                            text: data[i].AreaName
+                        }));
+                }
+
+            });
+        }
+    });
+</script>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">Edit Destination</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body h-100">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.RecordId)
+                            @Html.HiddenFor(model => model.CreateBy)
+                            @Html.HiddenFor(model => model.CreateDate)
+
+                            <div class="form-group row">
+                                @*@Html.LabelFor(model => model.desName, htmlAttributes: new { @class = "control-label col-md-3" })*@
+                                <label class="control-label col-md-3" for="desName">Name</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.desName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.desName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @*@Html.LabelFor(model => model.desState, "desState", htmlAttributes: new { @class = "control-label col-md-3" })*@
+                                <label class="control-label col-md-3" for="desName">State</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownList("desState", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.desState, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.Area1, "Area1", htmlAttributes: new { @class = "control-label col-md-3" })
+                                <div class="col-md-6">
+                                    @Html.DropDownList("Area1", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Area1, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.Area2, "Area2", htmlAttributes: new { @class = "control-label col-md-3" })
+                                <div class="col-md-6">
+                                    @Html.DropDownList("Area2", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Area2, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.Area3, "Area3", htmlAttributes: new { @class = "control-label col-md-3" })
+                                <div class="col-md-6">
+                                    @Html.DropDownList("Area3", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Area3, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.Area4, "Area4", htmlAttributes: new { @class = "control-label col-md-3" })
+                                <div class="col-md-6">
+                                    @Html.DropDownList("Area4", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Area4, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-3" })
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @*@Html.LabelFor(model => model.isEnable, htmlAttributes: new { @class = "control-label col-md-3" })*@
+                                <label class="control-label col-md-3" for="desName">Enable</label>
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.isEnable)
+                                        @Html.ValidationMessageFor(model => model.isEnable, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @*@Html.LabelFor(model => model.lineEnable, htmlAttributes: new { @class = "control-label col-md-3" })*@
+                                <label class="control-label col-md-3" for="desName">Line Enable</label>
+                                <div class="col-md-6">
+                                    <div class="checkbox">
+                                        @Html.EditorFor(model => model.lineEnable)
+                                        @Html.ValidationMessageFor(model => model.lineEnable, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @*@Html.LabelFor(model => model.lineGroupName, htmlAttributes: new { @class = "control-label col-md-3" })*@
+                                <label class="control-label col-md-3" for="desName">Line Group</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.lineGroupName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.lineGroupName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                @*@Html.LabelFor(model => model.lineToken, htmlAttributes: new { @class = "control-label col-md-3" })*@
+                                <label class="control-label col-md-3" for="desName">Token</label>
+                                <div class="col-md-6">
+                                    @Html.EditorFor(model => model.lineToken, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.lineToken, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-offset-2 col-md-3"></div>
+                                <div class="col-md-offset-2 col-md-4">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                                <div class="col-md-offset-2 col-md-5 text-right">
+                                    @Html.ActionLink("Back to List", "Index")
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

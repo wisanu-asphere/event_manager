@@ -1,0 +1,105 @@
+﻿@model IEnumerable<project_eventmanager.Models.event_EventType>
+
+@{
+    ViewBag.Title = "Event Type";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-header">
+                    <h4 class="card-title">Event Type</h4>
+                    <div class="card-tools">
+                        <div class="card-tools">
+                            @Html.ActionLink("Create New", "Create")
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="dataTable" class="table table-bordered table-striped hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Event Type ID
+                                </th>
+                                <th>
+                                    Event Type Name
+                                </th>
+                                <th>
+                                    Event Type Description
+                                </th>
+                                <th>
+                                    Is Enable
+                                </th>
+                                <th>
+                                    Create By
+                                </th>
+                                <th>
+                                    Create Date
+                                </th>
+                                <th>
+                                    Last Update By
+                                </th>
+                                <th>
+                                    Last Update Date
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EventTypeID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EventTypeName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EventTypeDescription)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.isEnable)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreateBy)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreateDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LastUpdateBy)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LastUpdateDate)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.RecordID }, new { @class = "btn btn-sm btn-primary " })
+                                        @Html.ActionLink("Details", "Details", new { id = item.RecordID }, new { @class = "btn btn-sm btn-primary " })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.RecordID }, new { @class = "btn btn-sm btn-danger " })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        $(".dataTables_wrapper").css("width", "100%");
+        $("#dataTable").DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+            "responsive": true,
+        });
+    });
+</script>

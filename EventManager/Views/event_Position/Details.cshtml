@@ -1,0 +1,80 @@
+﻿@model project_eventmanager.Models.event_Position
+
+@{
+    ViewBag.Title = "Position";
+}
+
+<div>
+    <h4>Event Position</h4>
+<hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            Position ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionID)
+        </dd>
+
+        <dt>
+            Position  Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionTypeName)
+        </dd>
+
+        <dt>
+            Description
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionDescription)
+        </dd>
+
+        <dt>
+            Is Enable
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isEnable)
+        </dd>
+
+        <dt>
+            Create By
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+
+        <dt>
+            Create Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            Last Update By
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateBy)
+        </dd>
+
+        <dt>
+            Last Update Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecordID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

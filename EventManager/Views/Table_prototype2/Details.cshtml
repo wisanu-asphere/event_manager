@@ -1,0 +1,98 @@
+﻿@model project_eventmanager.Models.Table_prototype2
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Table_prototype2</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bitCheckbox)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bitCheckbox)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.intRedio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.intRedio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ColFloat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ColFloat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_area.AreaName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area.AreaName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_area1.AreaName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_area1.AreaName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.event_Position.PositionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_Position.PositionID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecordID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
